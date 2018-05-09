@@ -1,0 +1,10 @@
+[package]
+name = "casing_macros"
+version = "0.1.0"
+authors = ["Hugo Laloge <hugo.laloge@gmail.com>"]
+
+[lib]
+name = "casing_macros"
+crate-type = ["dylib"]
+
+[dependencies]
