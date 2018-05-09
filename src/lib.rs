@@ -1,4 +1,33 @@
 #![feature(plugin_registrar, rustc_private)]
+#![allow(dead_code)]
+
+// TODO Find a way to enable doc tests
+
+/// Lower case macro
+///
+/// # Examples
+///
+/// ```
+/// #![feature(plugin)]
+/// #![plugin(casing_macros)]
+/// assert_eq!("a string", to_lower!("A String"));
+/// assert_eq!("identifier", to_lower!(stringify!(Identifier)));
+/// ```
+#[macro_export]
+macro_rules! to_lower { ($e:expr) => { /* Plugin builtin */ } }
+
+/// Upper case macro
+///
+/// # Examples
+///
+/// ```
+/// #![feature(plugin)]
+/// #![plugin(casing_macros)]
+/// assert_eq!("A STRING", to_lower!("A String"));
+/// assert_eq!("IDENTIFIER", to_lower!(stringify!(Identifier)));
+/// ```
+#[macro_export]
+macro_rules! to_upper { ($e:expr) => { /* Plugin builtin */ } }
 
 extern crate rustc_plugin;
 extern crate syntax;
@@ -13,7 +42,7 @@ use syntax::tokenstream::TokenTree;
 use syntax::ext::base;
 
 #[plugin_registrar]
-pub fn plugin_regsitrar(reg: &mut Registry) {
+fn plugin_regsitrar(reg: &mut Registry) {
     reg.register_macro("to_upper", expand_upper);
     reg.register_macro("to_lower", expand_lower);
 }
