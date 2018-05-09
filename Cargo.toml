@@ -1,6 +1,6 @@
 [package]
 name = "casing_macros"
-version = "0.1.0"
+version = "0.1.0-nightly.8ff4b4206"
 authors = ["Hugo Laloge <hugo.laloge@gmail.com>"]
 
 [lib]
